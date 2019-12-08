@@ -8,7 +8,7 @@ export default class DateRange extends React.Component{
 
     changeStage = () => {
         if (this.state.date !== null){
-            this.props.set(this.state.code)
+            this.props.set(this.state.date)
             this.props.changeStage(7)
         }
     }

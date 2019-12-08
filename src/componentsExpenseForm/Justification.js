@@ -8,7 +8,7 @@ export default class Justification extends React.Component{
 
     changeStage = () => {
         if (this.state.justification !== null){
-            this.props.set(this.state.code)
+            this.props.set(this.state.justification)
             this.props.changeStage(4)
         }
     }

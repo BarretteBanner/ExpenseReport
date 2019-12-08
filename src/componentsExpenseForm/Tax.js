@@ -8,7 +8,7 @@ export default class Tax extends React.Component{
 
     changeStage = () => {
         if (this.state.tax !== null){
-            this.props.set(this.state.code)
+            this.props.set(this.state.tax)
             this.props.changeStage(6)
         }
     }

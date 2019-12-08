@@ -55,12 +55,20 @@ export default class AddExpensesScreen extends React.Component{
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
-              date: `${this.props.appointment.month}/${this.props.appointment.day}/${this.props.appointment.year}`,
-              location: this.props.appointment.location,
-              project_id: this.props.appointment.project_id,
-              taken: true
+                category: this.state.category,
+                code: this.state.code,
+                justification: this.state.justification,
+                total_before_tax: this.state.total,
+                tax: this.state.tax,
+                date: this.state.date
             })
         })
+    }
+
+    componentDidUpdate() {
+        if (this.state.stage === 7){
+            this.handleSubmit()
+        }
     }
 
 
@@ -82,7 +90,7 @@ export default class AddExpensesScreen extends React.Component{
         } else if (this.state.stage === 5){
             component5 = <Tax changeStage={this.changeStage} set={this.set5}/>
         } else if (this.state.stage === 6){
-            component6 = <DateRange changeStage={this.changeStage}/>
+            component6 = <DateRange changeStage={this.changeStage} set={this.set6}/>
         }
         return(
             <View style={styles.page}>

@@ -8,7 +8,7 @@ export default class TotalBeforeTax extends React.Component{
 
     changeStage = () => {
         if (this.state.total !== null){
-            this.props.set(this.state.code)
+            this.props.set(this.state.total)
             this.props.changeStage(5)
         }
     }
