@@ -11,6 +11,7 @@ import InitialScreen from './src/screens/initial/InitialScreen';
 import ExpensesScreenManager from './src/screens/manager/ExpensesScreenManager';
 import LoginScreen from './src/screens/initial/LoginScreen';
 import SignupScreen from './src/screens/initial/SignupScreen';
+import EmployeeListScreen from './src/screens/manager/EmployeeListScreen';
 
 const navigator = createStackNavigator({
   HomeEmployee: HomeScreenEmployee,
@@ -23,7 +24,8 @@ const navigator = createStackNavigator({
   Initial: InitialScreen,
   ExpenseHistoryManager: ExpensesScreenManager,
   Login: LoginScreen,
-  Signup: SignupScreen
+  Signup: SignupScreen,
+  EmployeeList: EmployeeListScreen
 }, {
   initialRouteName: 'Login',
   defaultNavigationOptions: {

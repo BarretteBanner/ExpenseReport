@@ -10,13 +10,19 @@ export default class HomeScreenManager extends React.Component{
                         <Text style={styles.text}>Expense Approval</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('ExpenseHistoryManager')} style={styles.view}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('EmployeeList')} style={styles.view}>
                     <View>
                         <Text style={styles.text}>Expense History</Text>
                     </View>
                 </TouchableOpacity>
             </View>
         )
+    }
+}
+
+HomeScreenManager.navigationOptions = ({navigation}) => {
+    return{
+       headerTitle: 'Home',
     }
 }
 

@@ -38,6 +38,7 @@ export default class LoginScreen extends React.Component{
             }
             // let token = await AsyncStorage.getItem('token)
         } )
+        .catch()
     }
 
     handleSubmitStudent = () => {
@@ -99,8 +100,8 @@ export default class LoginScreen extends React.Component{
                         multiline
                     />
                 </View>
-                <Button onPress={this.handleSubmitResearcher} title='Researcher Login'/>
-                <Button onPress={this.handleSubmitStudent} title='Student Login'/>
+                <Button onPress={this.handleSubmitResearcher} title='Manager Login'/>
+                <Button onPress={this.handleSubmitStudent} title='Employee Login'/>
                 <View style={styles.signup}>
                     <Button  title='Signup' onPress={() => this.props.navigation.navigate('Signup')}/>
                 </View>

@@ -26,6 +26,12 @@ class HomeScreenEmployee extends React.Component{
     }
 }
 
+HomeScreenEmployee.navigationOptions = ({navigation}) => {
+    return{
+       headerTitle: 'Home',
+    }
+}
+
 const styles = StyleSheet.create({
     screen: {
         height: 725,

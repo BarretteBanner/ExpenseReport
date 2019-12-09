@@ -1,8 +1,9 @@
 import React from 'react'
 import {View, Text, AsyncStorage, FlatList, TouchableOpacity, StyleSheet} from 'react-native'
 import UserPreview from '../../components/UserPreview'
+import UserPreviewForList from '../../components/UserPreviewForList'
 
-export default class ExpensesForReviewScreen extends React.Component{
+export default class EmployeeListScreen extends React.Component{
     state = {
         users: null
     }
@@ -34,13 +35,19 @@ export default class ExpensesForReviewScreen extends React.Component{
                     data={this.state.users}
                     keyExtractor={(user) => user.id.toString()}
                     renderItem={(user) => {
-                        return <TouchableOpacity onPress={() => this.props.navigation.navigate('Approval', {user: user.item})}>
-                            <UserPreview user={user.item} />
+                        return <TouchableOpacity onPress={() => this.props.navigation.navigate('ExpenseHistoryManager', {user: user.item})}>
+                            <UserPreviewForList user={user.item} />
                         </TouchableOpacity>   
                     }}
                 />
             </View>
         )
+    }
+}
+
+EmployeeListScreen.navigationOptions = ({navigation}) => {
+    return{
+       headerTitle: 'Employee List',
     }
 }
 

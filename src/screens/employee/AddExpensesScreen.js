@@ -46,7 +46,12 @@ export default class AddExpensesScreen extends React.Component{
         this.setState({date: input})
     }
 
-    handleSubmit = async () => {
+    handleSubmit = () => {
+        this.addExpense()
+        this.updateUser()
+    }
+
+    addExpense = async () => {
         let token = await AsyncStorage.getItem('token')
         fetch(`http://localhost:3000/create-expense`, {
             method: "post",
@@ -60,11 +65,23 @@ export default class AddExpensesScreen extends React.Component{
                 justification: this.state.justification,
                 total_before_tax: this.state.total,
                 tax: this.state.tax,
-                date: this.state.date
+                date: this.state.date,
+                status: 'Pending'
             })
         })
     }
 
+    updateUser = async () => {
+        let token = await AsyncStorage.getItem('token')
+        fetch(`http://localhost:3000/add-pending`, {
+            method: "patch",
+            headers: {
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        })
+    }
+    
     componentDidUpdate() {
         if (this.state.stage === 7){
             this.handleSubmit()
@@ -122,6 +139,12 @@ export default class AddExpensesScreen extends React.Component{
                 </ScrollView>
             </View>
         )
+    }
+}
+
+AddExpensesScreen.navigationOptions = ({navigation}) => {
+    return{
+       headerTitle: 'Add Expense',
     }
 }
 
